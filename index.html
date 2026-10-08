@@ -39,11 +39,11 @@ for(const leg of [player.children[2],player.children[3]])leg.scale.set(.87,1,.87
 for(const arm of [player.children[4],player.children[5]])arm.scale.set(.85,.92,.85);
 let cloak=cylinder(player,.46,.54,.9,mat('#244f79'),0,1.06,-.08,20);cloak.scale.z=.72;
 cylinder(player,.43,.46,.17,mat('#23466e'),0,2.35,0,20);
-const eyeWhite=mat('#f7f4e9'),iris=mat('#493124'),pupil=mat('#141315');
+const eyeWhite=mat('#f7f4e9'),teenIris=mat('#493124'),teenPupil=mat('#141315');
 for(const side of [-1,1]){
  const eye=ball(player,.102,eyeWhite,side*.175,2.74,.398);eye.scale.set(.9,.72,.44);
- const irisDot=ball(player,.059,iris,side*.175,2.735,.441);irisDot.scale.z=.45;
- const pupilDot=ball(player,.032,pupil,side*.175,2.735,.468);pupilDot.scale.z=.45;
+ const irisDot=ball(player,.059,teenIris,side*.175,2.735,.441);irisDot.scale.z=.45;
+ const pupilDot=ball(player,.032,teenPupil,side*.175,2.735,.468);pupilDot.scale.z=.45;
 }
 // Biblical explorer makeover: hair, layered tunic, sash, hands, sandals and robe folds.
 const playerHair=mat('#30251d'),playerLinen=mat('#f3e9d3'),playerSash=mat('#8d5a36'),playerBlue=mat('#315e91');
