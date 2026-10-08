@@ -94,6 +94,21 @@ const hairFringe=ball(player,.36,playerHair,0,2.96,.17);hairFringe.scale.set(1,.
 const tunicPanel=box(player,.37,.91,.045,playerBlue,0,1.78,.348);
 box(player,.11,.7,.06,clothEdge,0,1.81,.38);
 
+// Character realism pass: anatomically softer features and detailed period costume.
+const teenSkinShade=mat('#d39d77'), teenHairShade=mat('#211a17'), teenClothShade=mat('#c9b99a');
+for(const side of [-1,1]){
+ const upperLid=ball(player,.116,skin,side*.175,2.798,.397);upperLid.scale.set(.94,.20,.36);
+ const lowerLid=ball(player,.105,teenSkinShade,side*.175,2.677,.405);lowerLid.scale.set(.90,.12,.30);
+ const nostril=ball(player,.019,teenSkinShade,side*.038,2.637,.502);nostril.scale.set(.8,.45,.4);
+ const hairCurl=ball(player,.135,teenHairShade,side*.22,3.067,.245);hairCurl.scale.set(1.12,.48,.8);
+ const shirtWrinkle=box(player,.027,.44,.025,teenClothShade,side*.23,1.94,.38);shirtWrinkle.rotation.z=side*.10;
+ const bootSole=box(player,.39,.045,.62,teenHairShade,side*.29,.025,.18);
+ const sandalLace=box(player,.065,.23,.055,teenClothShade,side*.29,.27,.42);
+}
+// A gentle cloth fold and hairline add depth without affecting player movement.
+const centralFold=box(player,.045,.73,.032,teenClothShade,.13,1.88,.383);
+centralFold.rotation.z=.05;
+const chin=ball(player,.19,skin,0,2.485,.30);chin.scale.set(.76,.42,.64);
 scene.add(player);// Noah is a genuine 3D character (not a flat image): robe, face, beard, staff and sandals.
 const noah=new THREE.Group();
 const linen=mat('#e8d9b9'),noahRobe=mat('#854c3c'),trim=mat('#d2b37e'),hair=mat('#e4e0d8'),face=mat('#c99572'),eyes=mat('#302a27'),leather=mat('#5a3829');
