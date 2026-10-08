@@ -31,10 +31,23 @@ function human(color){
  }
  return h
 }
-const player=human('#3267a8');let cloak=cylinder(player,.51,.64,.9,mat('#244f79'),0,1.06,-.08,20);cloak.scale.z=.75;cylinder(player,.46,.49,.17,mat('#23466e'),0,2.35,0,20);ball(player,.09,mat('#222222'),-.17,2.75,.4);ball(player,.09,mat('#222222'),.17,2.75,.4);
+const player=human('#3267a8');
+// Teenage explorer: slimmer youthful frame, larger expressive face, shorter arms.
+player.children[0].scale.set(.86,1,.73);
+player.children[1].scale.set(1.03,1.11,.94);
+for(const leg of [player.children[2],player.children[3]])leg.scale.set(.87,1,.87);
+for(const arm of [player.children[4],player.children[5]])arm.scale.set(.85,.92,.85);
+let cloak=cylinder(player,.46,.54,.9,mat('#244f79'),0,1.06,-.08,20);cloak.scale.z=.72;
+cylinder(player,.43,.46,.17,mat('#23466e'),0,2.35,0,20);
+const eyeWhite=mat('#f7f4e9'),iris=mat('#493124'),pupil=mat('#141315');
+for(const side of [-1,1]){
+ const eye=ball(player,.102,eyeWhite,side*.175,2.74,.398);eye.scale.set(.9,.72,.44);
+ const irisDot=ball(player,.059,iris,side*.175,2.735,.441);irisDot.scale.z=.45;
+ const pupilDot=ball(player,.032,pupil,side*.175,2.735,.468);pupilDot.scale.z=.45;
+}
 // Biblical explorer makeover: hair, layered tunic, sash, hands, sandals and robe folds.
 const playerHair=mat('#30251d'),playerLinen=mat('#f3e9d3'),playerSash=mat('#8d5a36'),playerBlue=mat('#315e91');
-const cap=ball(player,.455,playerHair,0,2.95,-.075);cap.scale.set(1,.43,.92);
+const cap=ball(player,.455,playerHair,0,2.98,-.075);cap.scale.set(1,.32,.92);
 for(const side of [-1,1]){
  const sideHair=ball(player,.16,playerHair,side*.365,2.79,-.035);sideHair.scale.set(.65,1.15,.8);
  const sleeve=cylinder(player,.23,.26,.48,playerLinen,side*.67,1.99,0,12);sleeve.rotation.z=side*.14;
@@ -48,7 +61,7 @@ const belt=cylinder(player,.52,.53,.15,playerSash,0,1.35,.02,20);belt.scale.z=.7
 const buckle=box(player,.2,.19,.09,playerLinen,0,1.36,.42);
 const tunicHem=cylinder(player,.62,.64,.12,playerLinen,0,.86,.02,20);tunicHem.scale.z=.76;
 const nose=ball(player,.085,skin,0,2.68,.435);nose.scale.set(.8,1,.8);
-const playerMouth=box(player,.15,.025,.035,playerSash,0,2.49,.423);
+const playerMouth=box(player,.14,.018,.028,playerSash,0,2.49,.423);
 
 // Character detail pass: facial definition and fabric surfaces without changing quest logic.
 function detailMesh(parent,geometry,material,x,y,z){const m=new THREE.Mesh(geometry,material);m.position.set(x,y,z);m.castShadow=true;parent.add(m);return m}
